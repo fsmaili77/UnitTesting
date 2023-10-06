@@ -2,16 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using EmployeesApp.Models;
 using EmployeesApp.Contracts;
+using EmployeesApp.Validation;
 
 namespace EmployeesApp.Controllers
 {
     public class EmployeesController : Controller
     {
         private readonly IEmployeeRepository _repo;
+        private readonly AccountNumberValidation _validation;
 
         public EmployeesController(IEmployeeRepository repo)
         {
             _repo = repo;
+            _validation = new AccountNumberValidation();
         }
 
         public IActionResult Index()
@@ -31,6 +34,12 @@ namespace EmployeesApp.Controllers
         {
             if(!ModelState.IsValid)
             {
+                return View(employee);
+            }
+
+            if (!_validation.IsValid(employee.AccountNumber))
+            {
+                ModelState.AddModelError("AccountNumber", "Account Number is invalid");
                 return View(employee);
             }
 
