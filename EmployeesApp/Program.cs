@@ -20,6 +20,7 @@ if (!app.Environment.IsDevelopment())
 {
 	app.UseExceptionHandler("/Home/Error");
 	app.UseHsts();
+    app.MigrateDatabase();
 }
 
 app.UseHttpsRedirection();
@@ -33,5 +34,7 @@ app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Employees}/{action=Index}/{id?}");
 
-app.MigrateDatabase();
+
 app.Run();
+
+public partial class Program { }
