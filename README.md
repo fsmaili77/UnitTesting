@@ -38,6 +38,17 @@ In the provided code for Integration testing, you may find
 
 [Check the code for `AntiForgeryToken validation`](https://github.com/fsmaili77/UnitTesting/commit/4e0079b9c711224d058acdf2d021c11bbc36e562)
 
+# Automated UI Tests with Selenium in ASP.NET Core
+The flow of adding UI Tests in our application is as follows:
+- Creation of a new `xUnit` project for Automated UI testing
+- Installation of two NuGet packages
+  - `Selenium.WebDriver`
+  - `Selenium.WebDriver.ChromeDriver`
+- Implementing IDisposable interface to our test class
+
+> **Notice:** Before you start the Test Explorer window, you need to start your application without debugging (CTRL+F5) because a running server is required for UI tests to pass.
+
+[Check the final version of the code with `Automated UI Tests` included](https://github.com/fsmaili77/UnitTesting)
 
 
 
