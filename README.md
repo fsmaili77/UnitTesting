@@ -19,6 +19,27 @@ We need to install the `Moq` library in order to isolate dependency in the test 
 
 [Check the test code for `Controllers`](https://github.com/fsmaili77/UnitTesting/commit/b3c7f261cdf7451e647a1f065db574d3158167ab)
 
+# Integration Testing in ASP.NET Core
+> Integration testing ensures that different components inside the application function correctly when working together.
+> The main difference between integration testing and unit testing is that integration testing often includes application’s infrastructure components like database, file system, etc. When we work with unit tests, we mock these mentioned components. But with integration testing, we want to ensure that the whole app is working as expected with all of these components combined together.
+
+After the preliminary intro for Integration testing, below we will outline the flow of adding such tests in our application:
+- Creation of a new `xUnit` project for integration testing purposes
+- Referencing to the main project
+- Installation of two NuGet packages
+  - `AspNetCore.Mvc.Testing` – this package provides the TestServer and an important class WebApplicationFactory to help us bootstrap our app in-memory
+  - `Microsoft.EntityFrameworkCore.InMemory` – In-memory database provider
+
+
+[Check the code for `Integration testing`](https://github.com/fsmaili77/UnitTesting/commit/e1412ea87c5b1709dc159a0ed7b5fd5e4cdc9d69)
+### AntiForgeryToken validation
+In the provided code for Integration testing, you may find
+ instructions on how to extract AntiForgeryToken from HTML response and how to use it in our tests.
+
+[Check the code for `AntiForgeryToken validation`](https://github.com/fsmaili77/UnitTesting/commit/4e0079b9c711224d058acdf2d021c11bbc36e562)
+
+
+
 
 
 
